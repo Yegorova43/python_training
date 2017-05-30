@@ -99,3 +99,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+test_add_group2.py
