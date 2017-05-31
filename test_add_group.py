@@ -14,13 +14,24 @@ class add(unittest.TestCase):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
     
-    def test_add(self):
-        success = True
+    def test_add_group(self):
         wd = self.wd
+        success = True
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
         self.create_group(wd, name="rtgtgtyh", header="thgythyh", footer="tgtyhyth")
+        self.return_to_groups_page(wd)
+        self.logout(wd)
+        self.assertTrue(success)
+
+    def test_add_empty_group(self):
+        wd = self.wd
+        success = True
+        self.open_home_page(wd)
+        self.login(wd, username="admin", password="secret")
+        self.open_groups_page(wd)
+        self.create_group(wd, name="", header="", footer="")
         self.return_to_groups_page(wd)
         self.logout(wd)
         self.assertTrue(success)
