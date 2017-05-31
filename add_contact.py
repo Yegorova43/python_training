@@ -20,11 +20,19 @@ class add_contact(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.create_contact(wd, Form_fields(firstname="Мария", middlename="Александровна", lastname="Егорова", nickname="Nick",
-                            title="Hello", company="Company", address="Address", home="54", mobile="89317856906",
-                            work="89216785434", fax="4908894", email="test@mail.ru", email2="test2@mail.ru",
-                            email3="test3@mail.ru", homepage="Home page", address2="Address2", phone2="89064452976",
-                            notes="Notes", byear="1988", ayear="2010"))
+        self.create_contact(wd, Form_fields(firstname="Мария", middlename="Александровна", lastname="Егорова",
+                                            nickname="Nick",
+                                            title="Hello", company="Company", address="Address", home="54",
+                                            mobile="89317856906",
+                                            work="89216785434", fax="4908894", email="test@mail.ru",
+                                            email2="test2@mail.ru",
+                                            email3="test3@mail.ru", homepage="Home page", address2="Address2",
+                                            phone2="89064452976",
+                                            notes="Notes", byear="1988", ayear="2010",
+                                            Bday="//div[@id='content']/form/select[1]//option[19]",
+                                            Bmonth="//div[@id='content']/form/select[2]//option[4]",
+                                            Aday="//div[@id='content']/form/select[3]//option[16]",
+                                            Amonth="//div[@id='content']/form/select[4]//option[12]"))
         self.logout(wd)
         self.assertTrue(success)
 
@@ -96,18 +104,18 @@ class add_contact(unittest.TestCase):
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys(form_fields.homepage)
         # fill birthday
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[19]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[19]").click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[4]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[4]").click()
+        if not wd.find_element_by_xpath(form_fields.Bday).is_selected():
+            wd.find_element_by_xpath(form_fields.Bday).click()
+        if not wd.find_element_by_xpath(form_fields.Bmonth).is_selected():
+            wd.find_element_by_xpath(form_fields.Bmonth).click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
         wd.find_element_by_name("byear").send_keys(form_fields.byear)
         # fill anniversary
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[16]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[16]").click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[12]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[12]").click()
+        if not wd.find_element_by_xpath(form_fields.Aday).is_selected():
+            wd.find_element_by_xpath(form_fields.Aday).click()
+        if not wd.find_element_by_xpath(form_fields.Amonth).is_selected():
+            wd.find_element_by_xpath(form_fields.Amonth).click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
         wd.find_element_by_name("ayear").send_keys(form_fields.ayear)

@@ -1,7 +1,7 @@
 class Form_fields:
 
     def __init__(self, firstname, middlename, lastname, nickname, title, company, address, home, mobile, work,
-                       fax, email, email2, email3, homepage, address2, phone2, notes, byear, ayear):
+                       fax, email, email2, email3, homepage, address2, phone2, notes, byear, ayear, Bday, Bmonth, Aday, Amonth):
         self.firstname = firstname
         self.middlename = middlename
         self.lastname = lastname
@@ -22,3 +22,7 @@ class Form_fields:
         self.notes = notes
         self.byear = byear
         self.ayear = ayear
+        self.Bday = Bday
+        self.Bmonth = Bmonth
+        self.Aday = Aday
+        self.Amonth = Amonth
