@@ -18,9 +18,9 @@ class add(unittest.TestCase):
         success = True
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd, "admin", "secret")
+        self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
-        self.create_group(wd)
+        self.create_group(wd, name="rtgtgtyh", header="thgythyh", footer="tgtyhyth")
         self.return_to_groups_page(wd)
         self.logout(wd)
         self.assertTrue(success)
@@ -37,7 +37,7 @@ class add(unittest.TestCase):
         # submit group creation
         wd.find_element_by_name("submit").click()
 
-    def create_group(self, wd, name="rtgtgtyh", header="thgythyh", footer="tgtyhyth"):
+    def create_group(self, wd, name, header, footer):
         # init group creation
         wd.find_element_by_name("new").click()
         # fill group form
