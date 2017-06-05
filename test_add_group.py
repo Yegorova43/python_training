@@ -17,25 +17,21 @@ class add(unittest.TestCase):
     
     def test_add_group(self):
         wd = self.wd
-        success = True
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
         self.create_group(wd, Group(name="rtgtgtyh", header="thgythyh", footer="tgtyhyth"))
         self.return_to_groups_page(wd)
         self.logout(wd)
-        self.assertTrue(success)
 
     def test_add_empty_group(self):
         wd = self.wd
-        success = True
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
         self.create_group(wd, Group(name="", header="", footer=""))
         self.return_to_groups_page(wd)
         self.logout(wd)
-        self.assertTrue(success)
 
     def logout(self, wd):
         # logout
