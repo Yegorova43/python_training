@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pytest
 from form_fields import Form_fields
-from application_contact import Application
+from application import Application
 
 @pytest.fixture
 def app(request):
