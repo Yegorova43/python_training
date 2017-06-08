@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import pytest
-from form_fields import Form_fields
-from application import Application
+
+from fixture.application import Application
+from model.form_fields import Form_fields
+
 
 @pytest.fixture
 def app(request):
@@ -11,7 +13,7 @@ def app(request):
 
 
 def test_add_contact(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.create_contact(Form_fields(firstname="Мария", middlename="Александровна", lastname="Егорова",
                                             nickname="Nick",
                                             title="Hello", company="Company", address="Address", home="54",
@@ -25,4 +27,4 @@ def test_add_contact(app):
                                             Bmonth="//div[@id='content']/form/select[2]//option[4]",
                                             Aday="//div[@id='content']/form/select[3]//option[16]",
                                             Amonth="//div[@id='content']/form/select[4]//option[12]"))
-    app.logout()
+    app.session.logout()
