@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from model.form_fields import Form_fields
+from model.contact import Contact
 
 def test_add_contact(app):
     app.session.login(username="admin", password="secret")
-    app.contact.create(Form_fields(firstname="Мария", middlename="Александровна", lastname="Егорова",
+    app.contact.create(Contact(firstname="Мария", middlename="Александровна", lastname="Егорова",
                                    nickname="Nick",
                                    title="Hello", company="Company", address="Address", home="54",
                                    mobile="89317856906",
