@@ -106,11 +106,11 @@ class ContactHelper:
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
 
-    def modify_first_contact(self):
+    def modify_first_contact(self, contact):
         wd = self.app.wd
         #init modification
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
-        wd.find_element_by_name("address").send_keys("12345")
+        wd.find_element_by_name("address").send_keys(contact.address)
         wd.find_element_by_name("update").click()
 
 
