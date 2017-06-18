@@ -2,7 +2,6 @@
 from model.contact import Contact
 
 def test_add_contact(app):
-    app.session.login(username="admin", password="secret")
     app.contact.create(Contact(firstname="Мария", middlename="Александровна", lastname="Егорова",
                                    nickname="Nick",
                                    title="Hello", company="Company", address="Address", home="54",
@@ -16,4 +15,3 @@ def test_add_contact(app):
                                    Bmonth="//div[@id='content']/form/select[2]//option[4]",
                                    Aday="//div[@id='content']/form/select[3]//option[16]",
                                    Amonth="//div[@id='content']/form/select[4]//option[12]"))
-    app.session.logout()
