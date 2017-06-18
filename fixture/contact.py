@@ -73,7 +73,9 @@ class ContactHelper:
             if not wd.find_element_by_xpath(field_name).is_selected():
                 wd.find_element_by_xpath(field_name).click()
 
-
+    def count(self):
+        wd = self.app.wd
+        return len(wd.find_elements_by_name("selected[]"))
 
 
 
