@@ -2,7 +2,8 @@ import pytest
 from fixture.application import Application
 
 
-fixture=None
+fixture = None
+
 
 @pytest.fixture
 def app(request):
@@ -14,6 +15,7 @@ def app(request):
             fixture = Application()
     fixture.session.ensure_login(username="admin", password="secret")
     return fixture
+
 
 @pytest.fixture(scope="session", autouse=True)
 def stop(request):
